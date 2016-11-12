@@ -118,3 +118,4 @@ Par exemple :
 ```
 
 ## Générer automatiquement le changelog
+```conventional-changelog -p angular -r 5 -o ChangeLog.md```. Ensuite pour passer au html : ```pandoc ChangeLog.md -o ChangeLog.html```
