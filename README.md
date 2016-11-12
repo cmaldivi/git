@@ -45,7 +45,7 @@ NB: ```git lg -10 -Gfilename -- FileLoader.java``` pour chercher les 10 derniers
 ## Entrer dans les répertoires untracked lors du status
 Important pour ne pas oublier d'ajouter un fichier, avec le risque de le supprimer lors d'un clean : ```git config --global status.showUntrackedFiles all```
 
-# Stash, ou comment mettre d'en un coin pour un moment
+# Stash, ou comment mettre sous le tapis pour un moment
 Par exemple : ```git stash save -u "Met de côté l'ajout de file2 et file3"``` qui va :
   - créer une nouvelle "remise" pour sauver toutes les modifications locales, puis remettre au propre la branche courante (```git reset --hard```)
   - utiliser l'option ```save``` pour bien fournir un message : dans une semaine vous ne vous souviendrez pas à quoi correspond cette "remise" !
