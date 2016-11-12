@@ -72,4 +72,18 @@ Quelques principes... :
  - on souhaite garder un historique de commit bien propre. Donc avant de pousser ma branche sur le remote pour les copains, il faut que je puisse nettoyer mes commits : messages, unicité par fonctionnalité, etc
  - les copains ont bossé et committé sur master pendant que je travaillais sur ma branche. J'aimerais réappliquer mes modifications sur le master le plus récent pour régler les éventuels conflits qui seraient apparus avec mes modifications
  
- 
+## Oups !
+
+J'ai commité (pas encore pushé...), mais j'ai oublié un truc. Pas de panique, je fais ma modif et je committe de la façon suivante : ```git commit --amend --no-edit```
+
+Ah oui : ```git config --global alias.oops "commit --amend --no-edit"```
+
+## Me remettre à jour par rapport à la branche distante, et réappliquer mes modifications
+
+On devrait toujours faire ```git pull --rebase``` au lieu de ```git pull```. Cela éviterait des merges parasites et inutiles (problème technique qui n'est en rien lié à la fusion d'une fonctionnalité).
+
+## Sur ma branche dérivée du master, réappliquer mes modifications sur le master le plus récent
+A faire systématiquement avant de soumettre un pull/merge request, ou d'essayer de faire une fusion :
+```git rebase master topic-branch```. Ainsi on règle les conflits de suite (et cela facilite la vie de git qui pourra faire un fast forward lors de la fusion...).
+
+
