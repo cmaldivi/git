@@ -40,5 +40,36 @@ On pourra donc maintenant **utiliser ```git di``` tout simplement**.
 
 On pourra donc maintenant **utiliser ```git lg``` tout simplement**.
 
+NB: ```git lg -10 -Gfilename -- FileLoader.java``` pour chercher les 10 derniers commits qui ont touché à la variable filename...
+
 ## Entrer dans les répertoires untracked lors du status
 Important pour ne pas oublier d'ajouter un fichier, avec le risque de le supprimer lors d'un clean : ```git config --global status.showUntrackedFiles all```
+
+# Stash, ou comment mettre d'en un coin pour un moment
+Par exemple : ```git stash save -u "Met de côté l'ajout de file2 et file3"``` qui va :
+  - créer une nouvelle "remise" pour sauver toutes les modifications locales, puis remettre au propre la branche courante (```git reset --hard```)
+  - utiliser l'option ```save``` pour bien fournir un message : dans une semaine vous ne vous souviendrez pas à quoi correspond cette "remise" !
+  - utiliser l'option ```-u``` pour ajouter les fichiers "untracked" afind d'être sûr de ne rien oublier
+  
+Puis utiliser ```git stash pop``` pour restaurer vos modifications. Utiliser ```pop``` plutôt que ```apply``` pour bien supprimer le stash en même temps.
+
+Stash est utile pour une sauvegarde temporaire ! Si vous n'êtes pas dans ce cas, créez une branche locale avec vos modifs (```git checkout -b save_unfinished_work```).
+
+# Branches
+Visualiser vos branches locales avec rappel du remote et indication du dernier commit : ```git branch -vv```
+
+Pour voir les branches remotes ajouter ```-a```
+
+Pour créer une branche locale avec les modifications en cours, et passer dessus : ```git checkout -b save_unfinished_work```
+
+Raccourci pour revenir à la branche précédente : ```git checkout -```
+
+Pousser une branche sur le remote, et mettre en place le tracking du remote par la branche locale : ```git push -u origin topic```
+
+# Rebase
+
+Quelques principes... :
+ - on souhaite garder un historique de commit bien propre. Donc avant de pousser ma branche sur le remote pour les copains, il faut que je puisse nettoyer mes commits : messages, unicité par fonctionnalité, etc
+ - les copains ont bossé et committé sur master pendant que je travaillais sur ma branche. J'aimerais réappliquer mes modifications sur le master le plus récent pour régler les éventuels conflits qui seraient apparus avec mes modifications
+ 
+ 
