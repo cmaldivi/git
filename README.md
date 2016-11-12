@@ -28,10 +28,17 @@ Essayons ```git diff --ignore-all-space --word-diff --word-diff-regex=.```
  - ```--word-diff``` pour éviter le diff sur les lignes, et lui préférer celui sur les mots
  - ```--word-diff-regex``` pour indiquer comment séparer les mots
  
-Bon, rappelons nous que l'on doit se simplifier la vie, donc : ```git config --global alias.di "diff --ignore-all-space --word-diff --word-diff-regex=."``` pour créer un alias. On pourra donc maintenant utiliser ```git di``` tout simplement.
+Bon, rappelons nous que l'on doit se simplifier la vie, donc : ```git config --global alias.di "diff --ignore-all-space --word-diff --word-diff-regex=."``` pour créer un alias. 
+
+On pourra donc maintenant **utiliser ```git di``` tout simplement**.
 
 ## log tout beau
  - SHA1 complets, ça ne sert à rien, donc : ```git config --global log.abbrevCommit true```
  - ```git log --graph --date=relative --pretty=tformat:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%an %ad)%Creset'```
  
  - ```git config --global alias.lg "log --graph --date=relative --pretty=tformat:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%an %ad)%Creset'"```
+
+On pourra donc maintenant **utiliser ```git lg``` tout simplement**.
+
+## Entrer dans les répertoires untracked lors du status
+Important pour ne pas oublier d'ajouter un fichier, avec le risque de le supprimer lors d'un clean : ```git config --global status.showUntrackedFiles all```
