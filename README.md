@@ -7,7 +7,7 @@
  - [30 options de commande Git qui gagnent à être connues](http://www.git-attitude.fr/2014/09/15/30-options-git-qui-gagnent-a-etre-connues)
  - [Bien utiliser Git merge et rebase](http://www.git-attitude.fr/2014/05/04/bien-utiliser-git-merge-et-rebase/)
  - [Git reset : rien ne se perd, tout se transforme](http://www.git-attitude.fr/2016/05/11/git-reset/)
-
+ - [Créer le changelog automatiquement à partir de vos commits](https://github.com/conventional-changelog/conventional-changelog)
  
 # à l'aide
 
