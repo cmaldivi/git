@@ -30,4 +30,8 @@ Essayons ```git diff --ignore-all-space --word-diff --word-diff-regex=.```
  
 Bon, rappelons nous que l'on doit se simplifier la vie, donc : ```git config --global alias.di "diff --ignore-all-space --word-diff --word-diff-regex=."``` pour créer un alias. On pourra donc maintenant utiliser ```git di``` tout simplement.
 
-
+## log tout beau
+ - SHA1 complets, ça ne sert à rien, donc : ```git config --global log.abbrevCommit true```
+ - ```git log --graph --date=relative --pretty=tformat:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%an %ad)%Creset'```
+ 
+ - ```git config --global alias.lg "log --graph --date=relative --pretty=tformat:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%an %ad)%Creset'"```
