@@ -44,7 +44,38 @@ NB: ```git lg -10 -Gfilename -- FileLoader.java``` pour chercher les 10 derniers
 ## Entrer dans les répertoires untracked lors du status
 Important pour ne pas oublier d'ajouter un fichier, avec le risque de le supprimer lors d'un clean : ```git config --global status.showUntrackedFiles all```
 
+# Staged ou pas staged ?
+Voir le [Visuel intéractif des zones de travail de git](http://ndpsoftware.com/git-cheatsheet.html).
+
+Regarder le statut suivant:
+```
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	modified:   file2
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   file2
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	file6
+```
+
+Il est important de comprendre la différence entre "staged", "not staged" et "untracked". Voir les commandes suivantes :
+ - ```git diff --staged```
+ - ```git diff```
+ 
+Si vous souhaitez utiliser la séparation "staged" / "not staged", attention à ne pas tout committer d'un coup avec par exemple ```git commit -a -m "feat(user): add login"```.
+
 # Stash, ou comment mettre sous le tapis pour un moment
+Voir le [Visuel intéractif des zones de travail de git](http://ndpsoftware.com/git-cheatsheet.html).
+
 Par exemple : ```git stash save -u "Met de côté l'ajout de file2 et file3"``` qui va :
   - créer une nouvelle "remise" pour sauver toutes les modifications locales, puis remettre au propre la branche courante (```git reset --hard```)
   - utiliser l'option ```save``` pour bien fournir un message : dans une semaine vous ne vous souviendrez pas à quoi correspond cette "remise" !
@@ -53,6 +84,10 @@ Par exemple : ```git stash save -u "Met de côté l'ajout de file2 et file3"``` 
 Puis utiliser ```git stash pop``` pour restaurer vos modifications. Utiliser ```pop``` plutôt que ```apply``` pour bien supprimer le stash en même temps.
 
 Stash est utile pour une sauvegarde temporaire ! Si vous n'êtes pas dans ce cas, créez une branche locale avec vos modifs (```git checkout -b save_unfinished_work```).
+
+# Mr propre
+ - ```git clean -f -d``` pour supprimer tous les "untracked" (dangereux...)
+ - ```git reset --hard``` pour supprimer toutes les modifications "staged" / "unstaged" (dangereux...)
 
 # Branches
 Visualiser vos branches locales avec rappel du remote et indication du dernier commit : ```git branch -vv```
