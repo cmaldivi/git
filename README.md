@@ -21,7 +21,7 @@ Pour accèder aux guides : ```git help -g```. Par exemple ```git help everyday``
 
 ## diff tout beau
 
-Par défaut, ```git diff``` n'est pas terrible, et l'on a souvent recourt à un outil plus sexy. Or on peut grandement améliorer le rendu du diff avec un peu de configuration.
+Par défaut, ```git diff``` n'est pas terrible, et l'on a souvent recours à un outil plus sexy. Or on peut grandement améliorer le rendu du diff avec un peu de configuration.
 
 Essayons ```git diff --ignore-all-space --color-words```
  - ```--ignore-all-space````ou ```-w``` pour ignorer les changements liés aux espaces
